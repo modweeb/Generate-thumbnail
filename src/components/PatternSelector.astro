@@ -1,0 +1,122 @@
+---
+// src/components/PatternSelector.astro
+
+// تعريف كائن يحتوي على كل أنماط SVG
+const patterns = [
+  {
+    name: 'dots',
+    title: 'النقاط',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><circle cx='20' cy='20' r='2' fill='{color}'/><circle cx='50' cy='20' r='2' fill='{color}'/><circle cx='80' cy='20' r='2' fill='{color}'/><circle cx='20' cy='50' r='2' fill='{color}'/><circle cx='50' cy='50' r='2' fill='{color}'/><circle cx='80' cy='50' r='2' fill='{color}'/><circle cx='20' cy='80' r='2' fill='{color}'/><circle cx='50' cy='80' r='2' fill='{color}'/><circle cx='80' cy='80' r='2' fill='{color}'/></svg>`
+  },
+  {
+    name: 'waves',
+    title: 'الموجات',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><path d='M0,50 C20,70 40,30 60,50 S80,30 100,50 L100,100 L0,100 Z' fill='{color}'/></svg>`
+  },
+  {
+    name: 'lines',
+    title: 'الخطوط',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><line x1='0' y1='20' x2='100' y2='20' stroke='{color}' stroke-width='1'/><line x1='0' y1='40' x2='100' y2='40' stroke='{color}' stroke-width='1'/><line x1='0' y1='60' x2='100' y2='60' stroke='{color}' stroke-width='1'/><line x1='0' y1='80' x2='100' y2='80' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'grid',
+    title: 'الشبكة',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><path d='M 0 50 L 100 50 M 50 0 L 50 100' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'circles',
+    title: 'الدوائر',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><circle cx='20' cy='20' r='10' fill='none' stroke='{color}' stroke-width='1'/><circle cx='80' cy='20' r='10' fill='none' stroke='{color}' stroke-width='1'/><circle cx='50' cy='50' r='10' fill='none' stroke='{color}' stroke-width='1'/><circle cx='20' cy='80' r='10' fill='none' stroke='{color}' stroke-width='1'/><circle cx='80' cy='80' r='10' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'hexagons',
+    title: 'السداسيات',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><path d='M50,0 L85,25 L85,75 L50,100 L15,75 L15,25 Z' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'triangles',
+    title: 'المثلثات',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><polygon points='50,0 100,100 0,100' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'diamonds',
+    title: 'المعينات',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect x='25' y='25' width='50' height='50' transform='rotate(45 50 50)' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'stars',
+    title: 'النجوم',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><path d='M50,0 L61,35 L98,35 L68,57 L79,92 L50,72 L21,92 L32,57 L2,35 L39,35 Z' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'cross',
+    title: 'الصليب',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><path d='M10,50 H90 M50,10 V90' stroke='{color}' stroke-width='1'/></svg>`
+  },
+  {
+    name: 'bubbles',
+    title: 'الفقاعات',
+    svg: `<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><circle cx='20' cy='20' r='15' fill='none' stroke='{color}' stroke-width='1'/><circle cx='60' cy='30' r='10' fill='none' stroke='{color}' stroke-width='1'/><circle cx='30' cy='60' r='12' fill='none' stroke='{color}' stroke-width='1'/><circle cx='70' cy='70' r='8' fill='none' stroke='{color}' stroke-width='1'/></svg>`
+  }
+];
+
+// دالة مساعدة لإنشاء رابط SVG
+const getPatternUrl = (svg, color = '#4a6fa5') => {
+  return `data:image/svg+xml;utf8,${svg.replace(/{color}/g, encodeURIComponent(color))}`;
+};
+---
+
+<div class="form-group">
+  <label for="bgPattern"><p class="title dt"><b>نمط الزخرفة:</b></p></label>
+  <div class="tb-pattern-options" id="patternOptions">
+    <!-- عرض كل الأنماط -->
+    {patterns.map(pattern => (
+      <div
+        class="tb-pattern-option"
+        class:selected={pattern.name === 'dots'}
+        data-pattern={pattern.name}
+        style={`background-image: url('${getPatternUrl(pattern.svg)}')`}
+        title={pattern.title}
+      />
+    ))}
+    
+    <!-- خيار "بدون نمط" -->
+    <div
+      class="tb-pattern-option"
+      data-pattern="none"
+      style="background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;"
+    >
+      <span style="font-size: 12px;">بدون</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tb-pattern-options {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .tb-pattern-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--linkC);
+  }
+
+  .tb-pattern-option:hover {
+    transform: scale(1.05);
+  }
+
+  .tb-pattern-option.selected {
+    border-color: var(--contentL);
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+  }
+</style>
