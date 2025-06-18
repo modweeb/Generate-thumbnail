@@ -4,11 +4,125 @@ import Layout from "../layouts/Base.astro";
 import ThumbnailGenerator from "../components/ThumbnailGenerator.astro";
 
 const seo = {
-  title: "مولد الصور المصغرة للمقالات",
-  description: "أداة متكاملة لإنشاء صور مصغرة احترافية لمقالاتك ومدونتك بنقرة واحدة."
+  title: "مولد الصور المصغرة للمقالات | أداة احترافية",
+  description: "أنشئ صورًا مصغرة جذابة لمقالاتك بسهولة مع خيارات تخصيص متقدمة. يدعم العربية والتصميمات التفاعلية."
 }
 ---
 
 <Layout seo={seo}>
-  <ThumbnailGenerator />
+  <div class="tool-page">
+    <!-- الأداة الرئيسية -->
+    <section class="tool-section">
+      <ThumbnailGenerator />
+    </section>
+
+    <!-- قسم التعليمات والتفاصيل -->
+    <section class="instructions-section">
+      <div class="instruction-card">
+        <h2 class="instruction-title">🎨 أداة تصميم الصور المصغرة</h2>
+        <p class="instruction-description">
+          أداة متكاملة لإنشاء صور مصغرة احترافية لمقالاتك ومدونتك بتصميمات قابلة للتخصيص بالكامل.
+          اختر من بين أنماط متعددة، عدّل الألوان، واحصل على نتيجة فورية.
+        </p>
+      </div>
+
+      <div class="instruction-card">
+        <h3 class="instruction-subtitle">📌 كيفية الاستخدام:</h3>
+        <ol class="steps-list">
+          <li>أدخل <strong>عنوان المقال</strong> والمقتطف</li>
+          <li>اختر <strong>نسبة الأبعاد</strong> المناسبة (أفقي/رأسي/مربع)</li>
+          <li>اختر <strong>نمط الخلفية</strong> من 12 تصميم مختلف</li>
+          <li>عدّل <strong>الألوان</strong> وأحجام النصوص</li>
+          <li>اختر <strong>شفافية النمط</strong> حسب رغبتك</li>
+          <li>انقر على <strong>"إنشاء الصورة"</strong></li>
+          <li>حمل النتيجة بصيغة <strong>JPG/PNG/WebP</strong></li>
+        </ol>
+      </div>
+
+      <div class="instruction-card tips">
+        <h3 class="instruction-subtitle">💡 نصائح احترافية:</h3>
+        <ul class="tips-list">
+          <li>استخدم ألوانًا متوافقة مع هوية مدونتك</li>
+          <li>للنصوص الطويلة، اختر خطوطًا واضحة مثل "Noto Kufi Arabic"</li>
+          <li>النسبة 16:9 هي الأفضل لمشاركات السوشيال ميديا</li>
+          <li>حافظ على شفافية النمط بين 20%-40% لضمان وضوح النص</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .tool-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .tool-section {
+    margin-bottom: 3rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 2rem;
+  }
+
+  .instructions-section {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .instruction-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+  }
+
+  .instruction-title {
+    color: var(--linkC);
+    margin-top: 0;
+    font-size: 1.8rem;
+  }
+
+  .instruction-subtitle {
+    color: #333;
+    font-size: 1.3rem;
+    margin-top: 0;
+    border-bottom: 2px solid var(--linkC);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .instruction-description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  .steps-list, .tips-list {
+    padding-left: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .steps-list li, .tips-list li {
+    margin-bottom: 0.8rem;
+  }
+
+  .tips {
+    background-color: #f9f5ff;
+    border-color: #e9d8fd;
+  }
+
+  @media (max-width: 768px) {
+    .tool-page {
+      padding: 1rem;
+    }
+    
+    .tool-section {
+      padding: 1rem;
+    }
+  }
+</style>
