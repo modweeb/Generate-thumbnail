@@ -1,0 +1,32 @@
+---
+// src/components/ThumbnailForm.astro
+const { inputs } = Astro.props;
+---
+
+<div class="tb-form-container">
+          <div class="form-group">
+            <label for="title">عنوان المقال:</label>
+            <input type="text" id="title" placeholder="أدخل العنوان هنا">
+          </div>
+          
+          <div class="form-group">
+            <label for="excerpt">مقتطف المقال:</label>
+            <textarea id="excerpt" placeholder="أدخل المقتطف هنا"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="author">المؤلف:</label>
+            <input type="text" id="author" placeholder="اسم المؤلف">
+          </div>
+          
+          <div class="form-group">
+            <label for="blogName">اسم المدونة:</label>
+            <input type="text" id="blogName" placeholder="اسم المدونة">
+          </div>
+          
+          <div class="form-group">
+            <label for="logo">شعار المؤلف:</label>
+            <input type="file" id="logo" accept="image/*">
+          </div>
+  
+</div>
