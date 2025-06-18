@@ -1,10 +1,16 @@
-import { defineConfig } from 'astro/config'; // import lit from '@astrojs/lit';
-
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel/serverless';
 
-
-// https://astro.build/config
 export default defineConfig({
-  site: "https://astro-minimal-starter.netlify.app/",
-  integrations: [sitemap()]
+  site: "https://modweeb.com",
+  base: "/generate-thumbnail",
+  integrations: [sitemap()],
+  output: 'server',
+  adapter: vercel(),
+  vite: {
+    define: {
+      'import.meta.env.BASE_URL': JSON.stringify('/generate-thumbnail')
+    }
+  }
 });
