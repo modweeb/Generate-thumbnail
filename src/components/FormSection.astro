@@ -6,37 +6,61 @@ import SizeControls from './SizeControls.astro';
 ---
 
 <div class="tb-form-container">
-  <!-- حقول النصوص -->
+  <!-- قسم إدخال النصوص -->
   <div class="form-group">
     <label for="title">عنوان المقال:</label>
-    <input type="text" id="title" placeholder="أدخل العنوان هنا">
+    <input 
+      type="text" 
+      id="title" 
+      placeholder="أدخل العنوان هنا"
+      class="form-input"
+    />
   </div>
   
   <div class="form-group">
     <label for="excerpt">مقتطف المقال:</label>
-    <textarea id="excerpt" placeholder="أدخل المقتطف هنا"></textarea>
+    <textarea 
+      id="excerpt" 
+      placeholder="أدخل المقتطف هنا"
+      class="form-textarea"
+    ></textarea>
   </div>
   
   <div class="form-group">
     <label for="author">المؤلف:</label>
-    <input type="text" id="author" placeholder="اسم المؤلف">
+    <input 
+      type="text" 
+      id="author" 
+      placeholder="اسم المؤلف"
+      class="form-input"
+    />
   </div>
   
   <div class="form-group">
     <label for="blogName">اسم المدونة:</label>
-    <input type="text" id="blogName" placeholder="اسم المدونة">
+    <input 
+      type="text" 
+      id="blogName" 
+      placeholder="اسم المدونة"
+      class="form-input"
+    />
   </div>
   
   <div class="form-group">
     <label for="logo">شعار المؤلف:</label>
-    <input type="file" id="logo" accept="image/*">
+    <input 
+      type="file" 
+      id="logo" 
+      accept="image/*"
+      class="form-file"
+    />
   </div>
   
-  <!-- اختيار الخط ونسبة الأبعاد -->
+  <!-- قسم اختيار الخط والأبعاد -->
   <div class="for-row">
     <div class="form-group">
       <label for="fontSelect">نوع الخط المستخدم:</label>
-      <select id="fontSelect">
+      <select id="fontSelect" class="form-select">
         <option value="El Messiri">El Messiri</option>
         <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
         <option value="Almarai">Almarai</option>
@@ -46,7 +70,7 @@ import SizeControls from './SizeControls.astro';
     
     <div class="form-group">
       <label for="aspectRatio">نسبة الأبعاد:</label>
-      <select id="aspectRatio">
+      <select id="aspectRatio" class="form-select">
         <option value="16/9">16:9 (أفقي)</option>
         <option value="4/3">4:3 (أفقي)</option>
         <option value="1/1">1:1 (مربع)</option>
@@ -56,20 +80,98 @@ import SizeControls from './SizeControls.astro';
     </div>
   </div>
   
-  <!-- المكونات المنفصلة -->
+  <!-- المكونات الفرعية -->
   <ColorPicker />
   <PatternSelector />
   <SizeControls />
   
-  <!-- الأزرار -->
-  <div class="tb-buttons">
-    <button id="generateBtn" class="tb-button">إنشاء الصورة</button>
-    <button id="resetBtn" class="tb-button tb-reset">إعادة التعيين</button>
+  <!-- أزرار التحكم -->
+  <div class="action-buttons">
+    <button id="generateBtn" class="tb-button primary">
+      إنشاء الصورة
+    </button>
+    <button id="resetBtn" class="tb-button secondary">
+      إعادة التعيين
+    </button>
   </div>
   
-  <div class="tb-download-options">
-    <button id="downloadJpgBtn" class="tb-button tb-secondary">JPG</button>
-    <button id="downloadPngBtn" class="tb-button tb-secondary">PNG</button>
-    <button id="downloadWebpBtn" class="tb-button tb-secondary">WebP</button>
+  <div class="download-options">
+    <button id="downloadJpgBtn" class="tb-button download">
+      <span>JPG</span>
+    </button>
+    <button id="downloadPngBtn" class="tb-button download">
+      <span>PNG</span>
+    </button>
+    <button id="downloadWebpBtn" class="tb-button download">
+      <span>WebP</span>
+    </button>
   </div>
 </div>
+
+<style>
+  .tb-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-file {
+    padding: 0.75rem;
+    border: 1px solid var(--linkC);
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s ease;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus {
+    outline: none;
+    border-color: var(--linkC);
+    box-shadow: 0 0 0 3px rgba(198, 0, 92, 0.1);
+  }
+
+  .for-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .download-options {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .for-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>
