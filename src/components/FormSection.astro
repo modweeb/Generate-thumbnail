@@ -1,0 +1,75 @@
+---
+// src/components/FormSection.astro
+import ColorPicker from './ColorPicker.astro';
+import PatternSelector from './PatternSelector.astro';
+import SizeControls from './SizeControls.astro';
+---
+
+<div class="tb-form-container">
+  <!-- حقول النصوص -->
+  <div class="form-group">
+    <label for="title">عنوان المقال:</label>
+    <input type="text" id="title" placeholder="أدخل العنوان هنا">
+  </div>
+  
+  <div class="form-group">
+    <label for="excerpt">مقتطف المقال:</label>
+    <textarea id="excerpt" placeholder="أدخل المقتطف هنا"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="author">المؤلف:</label>
+    <input type="text" id="author" placeholder="اسم المؤلف">
+  </div>
+  
+  <div class="form-group">
+    <label for="blogName">اسم المدونة:</label>
+    <input type="text" id="blogName" placeholder="اسم المدونة">
+  </div>
+  
+  <div class="form-group">
+    <label for="logo">شعار المؤلف:</label>
+    <input type="file" id="logo" accept="image/*">
+  </div>
+  
+  <!-- اختيار الخط ونسبة الأبعاد -->
+  <div class="for-row">
+    <div class="form-group">
+      <label for="fontSelect">نوع الخط المستخدم:</label>
+      <select id="fontSelect">
+        <option value="El Messiri">El Messiri</option>
+        <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
+        <option value="Almarai">Almarai</option>
+        <option value="Cairo">Cairo</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="aspectRatio">نسبة الأبعاد:</label>
+      <select id="aspectRatio">
+        <option value="16/9">16:9 (أفقي)</option>
+        <option value="4/3">4:3 (أفقي)</option>
+        <option value="1/1">1:1 (مربع)</option>
+        <option value="3/4">3:4 (رأسي)</option>
+        <option value="9/16">9:16 (رأسي)</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- المكونات المنفصلة -->
+  <ColorPicker />
+  <PatternSelector />
+  <SizeControls />
+  
+  <!-- الأزرار -->
+  <div class="tb-buttons">
+    <button id="generateBtn" class="tb-button">إنشاء الصورة</button>
+    <button id="resetBtn" class="tb-button tb-reset">إعادة التعيين</button>
+  </div>
+  
+  <div class="tb-download-options">
+    <button id="downloadJpgBtn" class="tb-button tb-secondary">JPG</button>
+    <button id="downloadPngBtn" class="tb-button tb-secondary">PNG</button>
+    <button id="downloadWebpBtn" class="tb-button tb-secondary">WebP</button>
+  </div>
+</div>
