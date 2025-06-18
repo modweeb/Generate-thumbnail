@@ -243,3 +243,6 @@
     flex-direction: row;
   }
 }
+@media (max-width: 768px) {
+  .BoxTool { padding: 10px; }
+}
