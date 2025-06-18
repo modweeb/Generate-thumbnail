@@ -1,0 +1,115 @@
+---
+// src/components/SizeControls.astro
+const {
+  titleSize = 40,
+  excerptSize = 26,
+  authorSize = 15,
+  blogNameSize = 24,
+  patternOpacity = 20
+} = Astro.props;
+---
+
+<div class="form-group">
+  <label>أحجام النصوص:</label>
+  <div class="tb-vertical-layout">
+    <!-- تحكم حجم عنوان المقال -->
+    <div class="tb-range-group">
+      <label for="titleSize">العنوان:</label>
+      <input
+        type="range"
+        id="titleSize"
+        min="20"
+        max="60"
+        value={titleSize}
+      />
+      <span id="titleSizeValue">{titleSize}px</span>
+    </div>
+
+    <!-- تحكم حجم المقتطف -->
+    <div class="tb-range-group">
+      <label for="excerptSize">المقتطف:</label>
+      <input
+        type="range"
+        id="excerptSize"
+        min="16"
+        max="36"
+        value={excerptSize}
+      />
+      <span id="excerptSizeValue">{excerptSize}px</span>
+    </div>
+
+    <!-- تحكم حجم اسم المؤلف -->
+    <div class="tb-range-group">
+      <label for="authorSize">المؤلف:</label>
+      <input
+        type="range"
+        id="authorSize"
+        min="12"
+        max="24"
+        value={authorSize}
+      />
+      <span id="authorSizeValue">{authorSize}px</span>
+    </div>
+
+    <!-- تحكم حجم اسم المدونة -->
+    <div class="tb-range-group">
+      <label for="blogNameSize">المدونة:</label>
+      <input
+        type="range"
+        id="blogNameSize"
+        min="12"
+        max="30"
+        value={blogNameSize}
+      />
+      <span id="blogNameSizeValue">{blogNameSize}px</span>
+    </div>
+  </div>
+</div>
+
+<!-- تحكم شفافية النمط -->
+<div class="form-group">
+  <label>شفافية النمط:</label>
+  <div class="tb-range-group">
+    <input
+      type="range"
+      id="patternOpacity"
+      min="0"
+      max="100"
+      value={patternOpacity}
+    />
+    <span id="patternOpacityValue">{patternOpacity}%</span>
+  </div>
+</div>
+
+<style>
+  .tb-vertical-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .tb-range-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tb-range-group label {
+    min-width: 80px;
+    font-size: 14px;
+  }
+
+  .tb-range-group input[type="range"] {
+    flex: 1;
+  }
+
+  .tb-range-group span {
+    min-width: 50px;
+    text-align: center;
+    background: var(--contentB);
+    border: 1px solid var(--linkC);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+</style>
