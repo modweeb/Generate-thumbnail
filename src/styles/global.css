@@ -1,6 +1,9 @@
 :root {
   --container-width: 960px;
   --container-padding: 1rem;
+  --linkC: #c6005c;
+  --contentB: #ffffff;
+  --contentL: #e0e0e0;
 }
 
 html,
