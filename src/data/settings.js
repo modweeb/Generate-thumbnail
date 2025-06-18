@@ -1,30 +1,13 @@
 export default {
-  // البيانات الأساسية
-  title: "مولد الصور المصغرة للمقالات | Modweeb",
-  description: "أداة متكاملة لإنشاء صور مصغرة احترافية لمقالاتك ومدونتك بتصميمات قابلة للتخصيص بالكامل",
-  url: "https://modweeb.com", // بدون شرطة مائلة في النهاية
-  
-  // روابط التواصل الاجتماعي (اختيارية)
-  socialMedia: {
-    twitter: {
-      url: "https://twitter.com/modweeb",
-      handle: "@modweeb"
-    },
-    youtube: {
-      url: "https://youtube.com/@modweeb"
-    },
-    github: {
-      url: "https://github.com/modweeb"
-    }
-  },
+  title: "مدونة مود ويب - Modweeb Blog", // اسم الموقع الظاهر في الترويسة والمتصفح
+  description: "مدونة تقنية تهتم بأدوات الإنتاجية، البرمجة، ودروس تقنية احترافية.", // وصف يظهر في محركات البحث
+  url: "https://modweeb.com", // رابط موقعك بدون "/" في النهاية
 
-  // إعدادات الأداة
-  appSettings: {
-    defaultTheme: "light",
-    supportedImageFormats: ["jpg", "png", "webp"],
-    maxFileSize: 5 * 1024 * 1024 // 5MB
-  },
+  // JSON LD
+  name: "مود ويب", // اسم المالك أو اسم العلامة التجارية
 
-  // حقوق النشر المخصصة لموقعك
-  copyright: `© ${new Date().getFullYear()} Modweeb. جميع الحقوق محفوظة`
+  // روابط حسابات التواصل الاجتماعي
+  facebookURL: "https://facebook.com/modweeb", 
+  twitterURL: "https://twitter.com/modweeb",
+  instagramURL: "https://instagram.com/modweeb"
 };
