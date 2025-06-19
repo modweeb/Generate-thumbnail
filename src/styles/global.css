@@ -6,6 +6,232 @@
   --contentL: #e0e0e0;
 }
 
+.BoxTool{position:relative;padding:20px;border-radius:12px;background:var(--contentB);margin-top:20px;box-shadow:0 3px 9px -2px rgba(0,0,0,0.1)}
+
+  .BoxTool::before {
+    border-radius: 70px 0 0 0;
+    bottom: 0;
+    left: unset;
+    right: 0;
+    content: '';
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    z-index: 0;
+    background: rgba(0, 0, 0, .04);
+  }
+        .thumbnail-generator-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+              
+        .editor {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        @media (min-width: 768px) {
+            .editor {
+                flex-direction: row;
+            }
+        }
+        
+        .tb-form-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .tb-preview {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        #thumbnailCanvas {
+            max-width: 100%;
+            border: 1px solid var(--linkC);
+            border-radius: 8px;
+            background: var(--contentB);
+            box-shadow: 0 4px 12px rgba(74, 111, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group input[type="color"],
+        .form-group input[type="file"],
+        .form-group select,
+        .form-group input[type="range"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: var(--contentB);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus,
+        .form-group input[type="color"]:focus,
+        .form-group select:focus,
+        .form-group input[type="range"]:focus {
+            border-color: var(--linkC);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
+            outline: none;
+        }
+        
+        .tb-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .tb-button {
+            background: var(--linkC);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 140px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(74, 111, 165, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+        
+        .tb-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(74, 111, 165, 0.1);
+            background: #a8004d;
+        }
+        
+        .tb-button:active {
+            transform: translateY(0);
+        }
+        
+        .tb-button.tb-secondary {
+            background: var(--linkC);
+        }
+        
+        .tb-button.tb-reset {
+            background: #666;
+        }
+        
+        .tb-pattern-options {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .tb-pattern-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--linkC);
+        }
+        
+        .tb-pattern-option:hover {
+            transform: scale(1.05);
+        }
+        
+        .tb-pattern-option.selected {
+            border-color: var(--contentL);
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+        }
+        
+        .tb-range-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tb-range-group input[type="range"] {
+            flex: 1;
+        }
+        
+        .tb-range-group span {
+            min-width: 40px;
+            text-align: center;
+            background: var(--contentB);
+            border: 1px solid var(--linkC);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .tb-color-item {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 8px;
+            margin-top: 8px;
+            overflow-x: auto;
+        }
+               
+        .color-box label {
+            font-size: 10px;
+            margin-bottom: 9px;
+            text-align: center;
+        }
+        
+        .color-box input[type="color"] {
+            width: 30px;
+            height: 30px;
+            border: none;
+            padding: 1;
+            cursor: pointer;
+            background: none;
+        }
+        
+        .tb-download-options {
+            display: flex;
+            gap: 8px;
+            margin-top: 11px;
+            justify-content: center;
+        }
+        
+        .tb-download-options .tb-button {
+            flex: none;
+            min-width: auto;
+            padding: 8px 15px;
+        }
+        
+        .tb-vertical-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
 html,
 body {
   margin: 0;
