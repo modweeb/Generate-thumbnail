@@ -12,13 +12,23 @@ const seo = {
 
 <Layout seo={seo}>
   <!-- 3. الصق هنا كود HTML الخاص بالأداة (بدون <style> أو <script>) -->
-  <div class="heroBox">
-        <div class="BoxTool">
-<div class="thumbnail-generator-container">
-	<div class="container">
-    <p class="title dt" href="#main-content"><b>مولد الصور المصغرة للمقالات</b></p>
-                
-                <div class="editor">
+<div class="heroBox">
+  <div class="BoxTool">
+    <div class="tool-header">
+      <span class="tool-badge">جديد</span>
+      <h3>مولد الصور المصغرة للمقالات</h3>
+      <div class="tool-actions">
+        <button class="action-icon" title="إعدادات">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="tool-content">
+      <div class="editor">
                     <div class="tb-form-container">
                         <div class="form-group">
                             <label for="title">عنوان المقال:</label>
@@ -219,23 +229,44 @@ const seo = {
                 </div>
             </div>
         </div>
+    
+    <div class="tool-footer">
+      <span class="tool-info">أداة متكاملة لإنشاء صور مصغرة احترافية</span>
+      <span class="tool-version">v2.1</span>
+    </div>
+  </div>
 </div>
-<style>
-.BoxTool{position:relative;padding:20px;border-radius:12px;background:var(--contentB);margin-top:20px;box-shadow:0 3px 9px -2px rgba(0,0,0,0.1)}
 
-  .BoxTool::before {
-    border-radius: 70px 0 0 0;
-    bottom: 0;
-    left: unset;
-    right: 0;
-    content: '';
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    z-index: 0;
-    background: rgba(0, 0, 0, .04);
+<style>
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --light-bg: #f9f9f9;
+    --border-color: #eaeaea;
+    --text-dark: #333;
+    --text-light: #666;
   }
-        .thumbnail-generator-container {
+  
+  .BoxTool {
+    position: relative;
+    padding: 0;
+    border-radius: 18px;
+    background: #ffffff;
+    margin: 30px auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    z-index: 1;
+    max-width: 1200px;
+  }
+  
+  .BoxTool:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  }
+  .thumbnail-generator-container {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -446,7 +477,199 @@ const seo = {
             flex-direction: column;
             gap: 15px;
         }
-    </style>
+  
+  /* رأس الإطار المحسن */
+  .tool-header {
+    padding: 18px 30px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+  }
+  
+  .tool-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    flex-grow: 1;
+  }
+  
+  .tool-badge {
+    background: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .tool-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .action-icon {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+  }
+  
+  .action-icon:hover {
+    background: rgba(255,255,255,0.25);
+    transform: rotate(30deg);
+  }
+  
+  
+  
+  @media (min-width: 992px) {
+    .tool-content {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* تذييل الإطار المحسن */
+  .tool-footer {
+    padding: 15px 30px;
+    background: var(--light-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+  }
+  
+  .tool-info {
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  .tool-version {
+    background: rgba(0,0,0,0.05);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-family: 'Courier New', monospace;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+  
+  /* تأثيرات خاصة */
+  .BoxTool::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-dark));
+    background-size: 200% 200%;
+    animation: gradientFlow 5s ease infinite;
+  }
+  
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* تحسينات للعناصر الداخلية */
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input[type="text"]:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    outline: none;
+  }
+  
+  .tb-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+  }
+  
+  .tb-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .tb-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+  }
+  
+  .tb-button.tb-reset {
+    background: #666;
+  }
+  /* محتوى الأداة */
+  .tool-content {
+    padding: 30px;
+    background: #ffffff;
+    
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  #thumbnailCanvas {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+  
+  #thumbnailCanvas:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+</style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const patternOptions = document.querySelectorAll('.tb-pattern-option');
