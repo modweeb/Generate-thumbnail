@@ -1,128 +1,200 @@
 ---
+// 1. استيراد المكونات أو المكتبات إذا احتجتها لاحقًا
 import Layout from "../layouts/Base.astro";
-import ThumbnailGenerator from "../components/ThumbnailGenerator.astro";
+import "../styles/global.css"; // تأكد من وجود هذا الملف
 
+// 2. بيانات SEO (يمكنك تعديلها)
 const seo = {
-  title: "مولد الصور المصغرة للمقالات | أداة احترافية",
-  description: "أنشئ صورًا مصغرة جذابة لمقالاتك بسهولة مع خيارات تخصيص متقدمة. يدعم العربية والتصميمات التفاعلية."
+  title: "مولد الصور المصغرة للمقالات",
+  description: "أداة لإنشاء صور مصغرة مخصصة لمقالاتك بسهولة."
 };
 ---
 
 <Layout seo={seo}>
-  <main class="tool-page">
-    <!-- الأداة الرئيسية -->
-    <section class="tool-section">
-      <ThumbnailGenerator />
-    </section>
+  <!-- 3. الصق هنا كود HTML الخاص بالأداة (بدون <style> أو <script>) -->
+  <div class="heroBox">
+        <div class="BoxTool">
+<div class="thumbnail-generator-container">
+	<div class="container">
+    <p class="title dt" href="#main-content"><b>مولد الصور المصغرة للمقالات</b></p>
+                
+                <div class="editor">
+                    <div class="tb-form-container">
+                        <div class="form-group">
+                            <label for="title">عنوان المقال:</label>
+                            <input type="text" id="title" placeholder="أدخل العنوان هنا">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="excerpt">مقتطف المقال:</label>
+                            <textarea id="excerpt" placeholder="أدخل المقتطف هنا"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="author">المؤلف:</label>
+                            <input type="text" id="author" placeholder="اسم المؤلف">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="blogName">اسم المدونة:</label>
+                            <input type="text" id="blogName" placeholder="اسم المدونة">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="logo">شعار المؤلف:</label>
+                            <input type="file" id="logo" accept="image/*">
+                        </div>
+                        
+                        
+                            <div class="form-group">
+                                <div style="display: flex; gap: 30px; align-items: center; padding: 10px 0;">
 
-    <!-- قسم التعليمات والتفاصيل -->
-    <section class="instructions-section">
-      <div class="instruction-card">
-        <h2 class="instruction-title">🎨 أداة تصميم الصور المصغرة</h2>
-        <p class="instruction-description">
-          أداة متكاملة لإنشاء صور مصغرة احترافية لمقالاتك ومدونتك بتصميمات قابلة للتخصيص بالكامل.
-          اختر من بين أنماط متعددة، عدّل الألوان، واحصل على نتيجة فورية.
-        </p>
-      </div>
+  <!-- اختيار نوع الخط -->
+  <div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <label for="fontSelect" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; cursor: pointer;">
+      نوع الخط المستخدم:
+    </label>
+    <select id="fontSelect" style="padding: 6px 12px; font-size: 0.9rem; border: 1px solid #2980b9; border-radius: 8px; background: var(--contentB); cursor: pointer; transition: border-color 0.3s ease;">
+      <option value="El Messiri">El Messiri</option>
+      <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
+      <option value="Almarai">Almarai</option>
+      <option value="Cairo">Cairo</option>
+    </select>
+  </div>
 
-      <div class="instruction-card">
-        <h3 class="instruction-subtitle">📌 كيفية الاستخدام:</h3>
-        <ol class="steps-list">
-          <li>أدخل <strong>عنوان المقال</strong> والمقتطف</li>
-          <li>اختر <strong>نسبة الأبعاد</strong> المناسبة (أفقي/رأسي/مربع)</li>
-          <li>اختر <strong>نمط الخلفية</strong> من 12 تصميم مختلف</li>
-          <li>عدّل <strong>الألوان</strong> وأحجام النصوص</li>
-          <li>اختر <strong>شفافية النمط</strong> حسب رغبتك</li>
-          <li>انقر على <strong>"إنشاء الصورة"</strong></li>
-          <li>حمل النتيجة بصيغة <strong>JPG/PNG/WebP</strong></li>
-        </ol>
-      </div>
+  <!-- اختيار نسبة الأبعاد -->
+  <div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <label for="aspectRatio" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; cursor: pointer;">
+      نسبة الأبعاد:
+    </label>
+    <select id="aspectRatio" style="padding: 6px 12px; font-size: 0.9rem; border: 1px solid #2980b9; border-radius: 8px; background: var(--contentB);  cursor: pointer; transition: border-color 0.3s ease;">
+      <option value="16/9">16:9 (أفقي)</option>
+      <option value="4/3">4:3 (أفقي)</option>
+      <option value="1/1">1:1 (مربع)</option>
+      <option value="3/4">3:4 (رأسي)</option>
+      <option value="9/16">9:16 (رأسي)</option>
+    </select>
+  </div>
 
-      <div class="instruction-card tips">
-        <h3 class="instruction-subtitle">💡 نصائح احترافية:</h3>
-        <ul class="tips-list">
-          <li>استخدم ألوانًا متوافقة مع هوية مدونتك</li>
-          <li>للنصوص الطويلة، اختر خطوطًا واضحة مثل "Noto Kufi Arabic"</li>
-          <li>النسبة 16:9 هي الأفضل لمشاركات السوشيال ميديا</li>
-          <li>حافظ على شفافية النمط بين 20%-40% لضمان وضوح النص</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+</div>
+                            </div>
+                        
+                        
+                        <div class="tform-group">
+                            <label><p class="title dt" href="#main-content"><b>الالوان</b></p></label>
+
+<div style="display: flex; gap: 10px; align-items: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+    <label for="bgColor" style="font-size: 0.6rem; margin-bottom: 5px; color:">الخلفية</label>
+    <input type="color" id="bgColor" value="#4a6fa5" style="width: 40px; height: 40px; border-color: var(--contentL); border-radius: 6px; cursor: pointer;">
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+    <label for="titleColor" style="font-size: 0.6rem; margin-bottom: 5px;">العنوان</label>
+    <input type="color" id="titleColor" value="#333333" style="width: 40px; height: 40px; border-color: var(--contentL); border-radius: 6px; cursor: pointer;">
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+    <label for="excerptColor" style="font-size: 0.6rem; margin-bottom: 5px;">المقتطف</label>
+    <input type="color" id="excerptColor" value="#333333" style="width: 40px; height: 40px; border-color: var(--contentL); border-radius: 6px; cursor: pointer;">
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+    <label for="authorColor" style="font-size: 0.6rem; margin-bottom: 5px;">المؤلف</label>
+    <input type="color" id="authorColor" value="#333333" style="width: 40px; height: 40px; border-color: var(--contentL); border-radius: 6px; cursor: pointer;">
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+    <label for="blogNameColor" style="font-size: 0.6rem; margin-bottom: 5px;">المدونة</label>
+    <input type="color" id="blogNameColor" value="#333333" style="width: 40px; height: 40px; border-color: var(--contentL); border-radius: 6px; cursor: pointer;">
+  </div>
+</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>شفافية النمط:</label>
+                            <div class="tb-range-group">
+                                <input type="range" id="patternOpacity" min="0" max="100" value="20">
+                                <span id="patternOpacityValue">20%</span>
+                            </div>
+                        </div>
+                        
+                      <div class="form-group">
+                        <label for="bgPattern"><p class="title dt" href="#main-content"><b>نمط الزخرفة:</b></p></label>
+                        <div class="tb-pattern-options" id="patternOptions">
+                            <div class="tb-pattern-option selected" data-pattern="dots" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><circle cx=\'20\' cy=\'20\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'50\' cy=\'20\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'80\' cy=\'20\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'20\' cy=\'50\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'50\' cy=\'50\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'80\' cy=\'50\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'20\' cy=\'80\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'50\' cy=\'80\' r=\'2\' fill=\'%234a6fa5\'/><circle cx=\'80\' cy=\'80\' r=\'2\' fill=\'%234a6fa5\'/></svg>')"></div>
+                            <div class="tb-pattern-option" data-pattern="waves" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><path d=\'M0,50 C20,70 40,30 60,50 S80,30 100,50 L100,100 L0,100 Z\' fill=\'%234a6fa5\'/></svg>')"></div>
+                            <div class="tb-pattern-option" data-pattern="lines" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><line x1=\'0\' y1=\'20\' x2=\'100\' y2=\'20\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><line x1=\'0\' y1=\'40\' x2=\'100\' y2=\'40\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><line x1=\'0\' y1=\'60\' x2=\'100\' y2=\'60\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><line x1=\'0\' y1=\'80\' x2=\'100\' y2=\'80\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')"></div>
+                            <div class="tb-pattern-option" data-pattern="grid" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><path d=\'M 0 50 L 100 50 M 50 0 L 50 100\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')"></div>
+                            <div class="tb-pattern-option" data-pattern="circles" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><circle cx=\'20\' cy=\'20\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'80\' cy=\'20\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'50\' cy=\'50\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'20\' cy=\'80\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'80\' cy=\'80\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')"></div>
+                            <div class="tb-pattern-option" data-pattern="hexagons" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><path d=\'M50,0 L85,25 L85,75 L50,100 L15,75 L15,25 Z\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="السداسيات"></div>
+                            <div class="tb-pattern-option" data-pattern="triangles" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><polygon points=\'50,0 100,100 0,100\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="المثلثات"></div>
+                            <div class="tb-pattern-option" data-pattern="diamonds" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><rect x=\'25\' y=\'25\' width=\'50\' height=\'50\' transform=\'rotate(45 50 50)\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="المعينات"></div>
+                            <div class="tb-pattern-option" data-pattern="stars" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><path d=\'M50,0 L61,35 L98,35 L68,57 L79,92 L50,72 L21,92 L32,57 L2,35 L39,35 Z\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="النجوم"></div>
+                            <div class="tb-pattern-option" data-pattern="cross" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><path d=\'M10,50 H90 M50,10 V90\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="الصليب"></div>
+                            <div class="tb-pattern-option" data-pattern="bubbles" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><circle cx=\'20\' cy=\'20\' r=\'15\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'60\' cy=\'30\' r=\'10\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'30\' cy=\'60\' r=\'12\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/><circle cx=\'70\' cy=\'70\' r=\'8\' fill=\'none\' stroke=\'%234a6fa5\' stroke-width=\'1\'/></svg>')" title="الفقاعات"></div>
+                            <div class="tb-pattern-option" data-pattern="none" style="background-color: #f5f5f5; display: flex; align-items: center; justify-content: center; font-size: 12px;">بدون</div>
+                        </div>
+                    </div>
+                        
+                        <div class="form-group">
+                            <label><p class="title dt" href="#main-content"><b>أحجام النصوص:</b></p></label>
+                            <div class="tb-vertical-layout">
+                                <div class="tb-range-group">
+                                    <label for="titleSize">العنوان:</label>
+                                    <input type="range" id="titleSize" min="20" max="60" value="40">
+                                    <span id="titleSizeValue">40px</span>
+                                </div>
+                                <div class="tb-range-group">
+                                    <label for="excerptSize">المقتطف:</label>
+                                    <input type="range" id="excerptSize" min="16" max="36" value="26">
+                                    <span id="excerptSizeValue">26px</span>
+                                </div>
+                                <div class="tb-range-group">
+                                    <label for="authorSize">المؤلف:</label>
+                                    <input type="range" id="authorSize" min="12" max="24" value="15">
+                                    <span id="authorSizeValue">15px</span>
+                                </div>
+                                <div class="tb-range-group">
+                                    <label for="blogNameSize">المدونة:</label>
+                                    <input type="range" id="blogNameSize" min="12" max="30" value="24">
+                                    <span id="blogNameSizeValue">24px</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tb-buttons">
+                            <button id="generateBtn" class="tb-button">إنشاء الصورة</button>
+                            <button id="resetBtn" class="tb-button tb-reset">إعادة التعيين</button>
+                        </div>
+                        
+                        <div class="tb-download-options">
+                            <button id="downloadJpgBtn" class="tb-button tb-secondary">JPG</button>
+                            <button id="downloadPngBtn" class="tb-button tb-secondary">PNG</button>
+                            <button id="downloadWebpBtn" class="tb-button tb-secondary">WebP</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tb-preview">
+<p class="title dt" href="#main-content"><b>المعاينة</b></p>
+                        <canvas id="thumbnailCanvas" width="800" height="420"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+  <!-- 4. أضف قسم <style> إذا كان هناك أنماط خاصة بهذه الصفحة فقط -->
+  <style>
+    /* أنماط CSS الخاصة بالأداة (انسخها من الكود الأصلي) */
+    :root {
+      --linkC: #c6005c;
+      --contentB: #ffffff;
+      --contentL: #e0e0e0;
+    }
+    .BoxTool { /* ... */ }
+    /* ... إلخ ... */
+  </style>
+<a href="/blog">Blog →</a>
+  </Container>
 </Layout>
-
-<style>
-  .tool-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #fefefe;
-  }
-
-  .tool-section {
-    margin-bottom: 3rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-  }
-
-  .instructions-section {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-
-  .instruction-card {
-    background: white;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    border: 1px solid #f0f0f0;
-  }
-
-  .instruction-title {
-    color: var(--linkC, #5a2e91);
-    margin-top: 0;
-    font-size: 1.8rem;
-  }
-
-  .instruction-subtitle {
-    color: #333;
-    font-size: 1.3rem;
-    margin-top: 0;
-    border-bottom: 2px solid var(--linkC, #5a2e91);
-    padding-bottom: 0.5rem;
-    display: inline-block;
-  }
-
-  .instruction-description {
-    color: #555;
-    line-height: 1.6;
-    font-size: 1.1rem;
-  }
-
-  .steps-list, .tips-list {
-    padding-left: 1.2rem;
-    line-height: 1.8;
-  }
-
-  .steps-list li, .tips-list li {
-    margin-bottom: 0.8rem;
-  }
-
-  .tips {
-    background-color: #f9f5ff;
-    border-color: #e9d8fd;
-  }
-
-  @media (max-width: 768px) {
-    .tool-page {
-      padding: 1rem;
-    }
-    
-    .tool-section {
-      padding: 1rem;
-    }
-  }
-</style>
