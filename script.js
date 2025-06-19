@@ -1,5 +1,4 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
         const canvas = document.getElementById('thumbnailCanvas');
         const ctx = canvas.getContext('2d');
         const titleInput = document.getElementById('title');
@@ -431,4 +430,3 @@ if (blogName) {
         // توليد صورة افتراضية عند التحميل
         generateThumbnail();
     });
-    </script>
