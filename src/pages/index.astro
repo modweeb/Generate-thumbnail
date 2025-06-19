@@ -12,22 +12,26 @@ const seo = {
 
 <Layout seo={seo}>
   <!-- 3. الصق هنا كود HTML الخاص بالأداة (بدون <style> أو <script>) -->
-<div class="heroBox">
-  <div class="BoxTool">
-    <div class="tool-header">
-      <span class="tool-badge">جديد</span>
-      <h3>مولد الصور المصغرة</h3>
-      <div class="tool-actions">
-        <button class="action-icon" title="إعدادات">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-            <circle cx="12" cy="12" r="10"></circle>
-          </svg>
-        </button>
-      </div>
+<div class="modern-tool-frame">
+  <div class="tool-header-bar">
+    <div class="header-left">
+      <a href="https://modweeb.com" class="home-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <h3>أداة مود ويب</h3>
     </div>
-    
-    <div class="tool-content">
+    <button class="dark-mode-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="tool-content-wrapper">
+        <div class="tool-content">
       <div class="editor">
                     <div class="tb-form-container">
                         <div class="form-group">
@@ -229,447 +233,27 @@ const seo = {
                 </div>
             </div>
         </div>
-    
-    <div class="tool-footer">
-      <span class="tool-info">جميع الحقوق محفوظة لـ مدونة مود ويب</span>
-      <span class="tool-version">v2.1</span>
-    </div>
+  
+  <div class="tool-footer-bar">
+    <span class="version-badge">إصدار تجريبي 1</span>
+    <span class="copyright">جميع الحقوق محفوظة &copy; مود ويب 2023</span>
   </div>
 </div>
 
-<style>
-  :root {
-    --primary: #4361ee;
-    --primary-dark: #3a0ca3;
-    --accent: #f72585;
-    --light-bg: #f9f9f9;
-    --border-color: #eaeaea;
-    --text-dark: #333;
-    --text-light: #666;
-  }
-  
-  .BoxTool {
-    position: relative;
-    padding: 0;
-    border-radius: 18px;
-    background: #ffffff;
-    margin: 30px auto;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    z-index: 1;
-    max-width: 1200px;
-  }
-  
-  .BoxTool:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-  }
-  .thumbnail-generator-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-              
-        .editor {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        
-        @media (min-width: 768px) {
-            .editor {
-                flex-direction: row;
-            }
-        }
-        
-        .tb-form-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .tb-preview {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        #thumbnailCanvas {
-            max-width: 100%;
-            border: 1px solid var(--linkC);
-            border-radius: 8px;
-            background: var(--contentB);
-            box-shadow: 0 4px 12px rgba(74, 111, 165, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .form-group input[type="text"],
-        .form-group textarea,
-        .form-group input[type="color"],
-        .form-group input[type="file"],
-        .form-group select,
-        .form-group input[type="range"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: var(--contentB);
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input[type="text"]:focus,
-        .form-group textarea:focus,
-        .form-group input[type="color"]:focus,
-        .form-group select:focus,
-        .form-group input[type="range"]:focus {
-            border-color: var(--linkC);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
-            outline: none;
-        }
-        
-        .tb-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        
-        .tb-button {
-            background: var(--linkC);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            flex: 1;
-            min-width: 140px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(74, 111, 165, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: bold;
-        }
-        
-        .tb-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(74, 111, 165, 0.1);
-            background: #a8004d;
-        }
-        
-        .tb-button:active {
-            transform: translateY(0);
-        }
-        
-        .tb-button.tb-secondary {
-            background: var(--linkC);
-        }
-        
-        .tb-button.tb-reset {
-            background: #666;
-        }
-        
-        .tb-pattern-options {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .tb-pattern-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid var(--linkC);
-        }
-        
-        .tb-pattern-option:hover {
-            transform: scale(1.05);
-        }
-        
-        .tb-pattern-option.selected {
-            border-color: var(--contentL);
-            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
-        }
-        
-        .tb-range-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .tb-range-group input[type="range"] {
-            flex: 1;
-        }
-        
-        .tb-range-group span {
-            min-width: 40px;
-            text-align: center;
-            background: var(--contentB);
-            border: 1px solid var(--linkC);
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-        
-        .tb-color-item {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 8px;
-            margin-top: 8px;
-            overflow-x: auto;
-        }
-               
-        .color-box label {
-            font-size: 10px;
-            margin-bottom: 9px;
-            text-align: center;
-        }
-        
-        .color-box input[type="color"] {
-            width: 30px;
-            height: 30px;
-            border: none;
-            padding: 1;
-            cursor: pointer;
-            background: none;
-        }
-        
-        .tb-download-options {
-            display: flex;
-            gap: 8px;
-            margin-top: 11px;
-            justify-content: center;
-        }
-        
-        .tb-download-options .tb-button {
-            flex: none;
-            min-width: auto;
-            padding: 8px 15px;
-        }
-        
-        .tb-vertical-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-  
-  /* رأس الإطار المحسن */
-  .tool-header {
-    padding: 18px 30px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    position: relative;
-  }
-  
-  .tool-header h3 {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-    flex-grow: 1;
-  }
-  
-  .tool-badge {
-    background: var(--accent);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  .tool-actions {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .action-icon {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: white;
-  }
-  
-  .action-icon:hover {
-    background: rgba(255,255,255,0.25);
-    transform: rotate(30deg);
-  }
-  
-  
-  
-  @media (min-width: 992px) {
-    .tool-content {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  /* تذييل الإطار المحسن */
-  .tool-footer {
-    padding: 15px 30px;
-    background: var(--light-bg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    font-size: 0.9rem;
-  }
-  
-  .tool-info {
-    color: var(--text-light);
-    font-weight: 500;
-  }
-  
-  .tool-version {
-    background: rgba(0,0,0,0.05);
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-family: 'Courier New', monospace;
-    color: var(--text-dark);
-    font-weight: bold;
-    font-size: 0.85rem;
-  }
-  
-  /* تأثيرات خاصة */
-  .BoxTool::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-dark));
-    background-size: 200% 200%;
-    animation: gradientFlow 5s ease infinite;
-  }
-  
-  @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* تحسينات للعناصر الداخلية */
-  .form-group {
-    margin-bottom: 25px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 0.95rem;
-  }
-  
-  .form-group input[type="text"],
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #fff;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-  }
-  
-  .form-group input[type="text"]:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-    outline: none;
-  }
-  
-  .tb-buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-  }
-  
-  .tb-button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    flex: 1;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .tb-button:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-  }
-  
-  .tb-button.tb-reset {
-    background: #666;
-  }
-  /* محتوى الأداة */
-  .tool-content {
-    padding: 30px;
-    background: #ffffff;
+<script>
+  // تفعيل الوضع الليلي
+  document.querySelector('.dark-mode-toggle').addEventListener('click', function() {
+    document.querySelector('.modern-tool-frame').classList.toggle('dark-mode');
     
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  #thumbnailCanvas {
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    background: #fff;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-  }
-  
-  #thumbnailCanvas:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  }
-</style>
+    // تغيير أيقونة الشمس/القمر حسب الحاجة
+    const icon = this.querySelector('svg');
+    if (document.querySelector('.modern-tool-frame').classList.contains('dark-mode')) {
+      icon.innerHTML = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"></path>';
+    } else {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+  });
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const patternOptions = document.querySelectorAll('.tb-pattern-option');
