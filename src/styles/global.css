@@ -136,11 +136,12 @@
   
   /* تحسينات للعناصر الداخلية */
   .form-group {
-    margin-bottom: 29px;
-    display: block;
+    margin-bottom: 19px;
+    
   }
   
-  .form-group label {    
+  .form-group label {
+    display: block;
     margin-bottom: 10px;
     font-weight: 600;
     color: var(--text-dark);
