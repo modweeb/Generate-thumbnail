@@ -537,8 +537,9 @@
   }
 
 html,
+/* الخطوط الأساسية */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Cairo", Arial, Helvetica, sans-serif;
 }
