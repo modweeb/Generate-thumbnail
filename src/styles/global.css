@@ -145,7 +145,7 @@
     margin-bottom: 10px;
     font-weight: 600;
     color: var(--text-dark);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
   
   .form-group input[type="text"],
@@ -201,10 +201,10 @@
   }
   /* محتوى الأداة */
   .tool-content {
-    
+    padding: 0px;
     background: #ffffff; 
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 0px;
   }
   
   #thumbnailCanvas {
